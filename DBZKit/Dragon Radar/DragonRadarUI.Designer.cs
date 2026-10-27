@@ -112,9 +112,9 @@
             // and ignores them, which is exactly the "map renders behind the tree view"
             // bug this fixes. mapScrollPanel (Fill) goes first; mapTreeView (Left) and
             // sidebarTabControl (Right) after it so their edges get carved out of it.
-            mapViewerTabPage.Controls.Add(mapScrollPanel);
-            mapViewerTabPage.Controls.Add(mapTreeView);
-            mapViewerTabPage.Controls.Add(sidebarTabControl);
+        mapViewerTabPage.Controls.Add(mapScrollPanel);    // DockStyle.Fill
+mapViewerTabPage.Controls.Add(mapTreeView);       // DockStyle.Left
+mapViewerTabPage.Controls.Add(sidebarTabControl); // DockStyle.Right
             mapViewerTabPage.Location = new Point(4, 24);
             mapViewerTabPage.Name = "mapViewerTabPage";
             mapViewerTabPage.Size = new Size(1492, 798);
