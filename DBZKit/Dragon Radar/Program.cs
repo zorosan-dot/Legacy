@@ -2,16 +2,19 @@ namespace Dragon_Radar
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new DragonRadarUI());
+            try
+            {
+                ApplicationConfiguration.Initialize();
+                Application.Run(new DragonRadarUI());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fatal Startup Error:\n\n{ex.Message}\n\nStack Trace:\n{ex.StackTrace}", 
+                    "Dragon Radar - Crash on Startup", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
