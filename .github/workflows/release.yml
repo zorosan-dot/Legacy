@@ -43,6 +43,9 @@ jobs:
       - name: Restore Legacy
         run: dotnet restore DBZKit/Legacy/Legacy.csproj
 
+      - name: Restore Bulma
+        run: dotnet restore DBZKit/Bulma/Bulma.csproj
+
       - name: Publish DBZKit
         run: dotnet publish DBZKit/DBZKit/DBZKit.csproj -c Release -p:Platform=x86 -r win-x86 --self-contained false -o publish/release
 
@@ -51,6 +54,9 @@ jobs:
 
       - name: Publish Legacy
         run: dotnet publish DBZKit/Legacy/Legacy.csproj -c Release -p:Platform=x86 -r win-x86 --self-contained false -o publish/release
+
+      - name: Publish Bulma
+        run: dotnet publish DBZKit/Bulma/Bulma.csproj -c Release -o publish/release
 
       - name: Zip artifacts
         shell: pwsh
